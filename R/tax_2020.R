@@ -1,5 +1,5 @@
 #' VancouverProperty Tax Assessment data
-#' This is data that the city of Vancouver has collected on the properties in Vancouver.
+#' This is data that the city of Vancouver has collected on the properties in Vancouver for assessment year 2020.
 #'
 #' @source <https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/>, downloaded 2020-03-20
 #' @format A data frame with columns:
