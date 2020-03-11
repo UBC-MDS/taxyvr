@@ -4,7 +4,7 @@
 \name{tax_2020}
 \alias{tax_2020}
 \title{VancouverProperty Tax Assessment data
-This is data that the city of Vancouver has collected on the properties in Vancouver.}
+This is data that the city of Vancouver has collected on the properties in Vancouver for assessment year 2020.}
 \format{A data frame with columns:
 \describe{
 \item{pid}{Property identifier, assigned by Land Title Survey Authority, sourced from BC Assessment records.}
@@ -45,7 +45,7 @@ tax_2020
 }
 \description{
 VancouverProperty Tax Assessment data
-This is data that the city of Vancouver has collected on the properties in Vancouver.
+This is data that the city of Vancouver has collected on the properties in Vancouver for assessment year 2020.
 }
 \examples{
 tax_2020
