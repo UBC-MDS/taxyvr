@@ -11,13 +11,13 @@
 	.st5{fill:#FFFFFF;}
 	.st6{font-family:'MicrosoftSansSerif';}
 	.st7{font-size:90px;}
-	.st8{letter-spacing:6;}
-	.st9{fill:#97999B;stroke:#00205B;stroke-width:1.1616;stroke-miterlimit:10;}
+	.st8{letter-spacing:5;}
+	.st9{fill:none;stroke:#00205B;stroke-width:1.1616;stroke-miterlimit:10;}
 	.st10{fill:#97999B;stroke:#00205B;stroke-width:0.5808;stroke-miterlimit:10;}
-	.st11{fill:#404040;stroke:#97999B;stroke-width:11;stroke-miterlimit:10;}
+	.st11{fill:none;stroke:#97999B;stroke-width:11;stroke-miterlimit:10;}
 	.st12{fill:#97999B;}
 	.st13{font-size:72px;}
-	.st14{letter-spacing:4;}
+	.st14{letter-spacing:3;}
 </style>
 <path class="st0" d="M18.6,626.9V223.6l51.6-29.8L367.9,22l0,0l296.7,171.3l52.6,30.3v403.3L367.9,828.5L18.6,626.9z"/>
 <path class="st1" d="M734.9,637.4V213.1l-29.3-16.9L427.8,35.8L367.5,1l-60.3,34.8L29.4,196.2L0.1,213.1v424.2l29.3,16.9
@@ -26,7 +26,7 @@
 <path class="st2" d="M367,633.9c0.3-0.3,0.6-0.6,0.9-0.9h-0.3C367.5,633.3,367.3,633.6,367,633.9z"/>
 <path class="st3" d="M367,633.9c0.3-0.3,0.6-0.6,0.9-0.9h-0.3C367.5,633.3,367.3,633.6,367,633.9z"/>
 <rect x="198" y="605" class="st4" width="343" height="92"/>
-<text transform="matrix(1 0 0 1 198 669.4238)" class="st5 st6 st7 st8">taxyvR</text>
+<text transform="matrix(1 0 0 1 222.8 675.4238)" class="st5 st6 st7 st8">taxyvR</text>
 <g>
 	<g>
 		<line class="st9" x1="128.7" y1="562" x2="596.8" y2="562"/>
@@ -39,13 +39,9 @@
 				<line class="st9" x1="503.2" y1="562" x2="503.2" y2="555"/>
 				<line class="st9" x1="596.8" y1="562" x2="596.8" y2="555"/>
 			</g>
-			<g>
-			</g>
 		</g>
 	</g>
 	<g>
-		<g>
-		</g>
 		<line class="st9" x1="128.7" y1="562" x2="128.7" y2="282"/>
 		<g>
 			<g>
@@ -55,8 +51,6 @@
 				<line class="st9" x1="128.7" y1="394" x2="140.4" y2="394"/>
 				<line class="st9" x1="128.7" y1="338" x2="140.4" y2="338"/>
 				<line class="st9" x1="128.7" y1="282" x2="140.4" y2="282"/>
-			</g>
-			<g>
 			</g>
 		</g>
 	</g>
@@ -69,10 +63,6 @@
 				<rect x="422.6" y="338" class="st10" width="67.4" height="224"/>
 				<rect x="516.3" y="450" class="st10" width="67.4" height="112"/>
 			</g>
-		</g>
-	</g>
-	<g>
-		<g>
 		</g>
 	</g>
 </g>
