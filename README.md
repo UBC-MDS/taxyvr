@@ -1,2 +1,11 @@
 # taxyvr
-A Collection of Property Tax Assessment data in the city of Vancouver 
+
+This is a semi-tidied data obtained from the City of Vancouver's Open Data Portal. It contains information on Vancouver property tax from the BC Assessment.
+
+## Installation 
+
+```
+remotes::install_github("UBC-MDS/taxyvr")
+```
+
+
