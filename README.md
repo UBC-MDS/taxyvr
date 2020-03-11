@@ -1,4 +1,4 @@
-# TaxyvR <img src="logoa.svg" width="120" align="right" />
+# TaxyvR <img src="logo.svg" width="120" align="right" />
 
 
 This is a semi-tidied data obtained from the City of Vancouver's Open Data Portal. It contains information on Vancouver property tax from the BC Assessment.
