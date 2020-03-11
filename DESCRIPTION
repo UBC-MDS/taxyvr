@@ -1,13 +1,24 @@
 Package: taxyvr
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: This package contains data on Vancouver property tax assessment
+Version: 0.0.0.1
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Hayley",
+           family = "Boyce",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "hayleyfboyce@gmail.com")
+Description: This is a semi-tidied data obtained from the City of Vancouver's Open Data Portal. It contains information on Vancouver property tax from the BC assessment.
+License: Open Government Licence Vancouver
+URL: https://github.com/UBC-MDS/taxyvr/, https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/
+BugReports: https://github.com/UBC-MDS/taxyvr/issues
+Depends: 
+    R (>= 3.6.0)
+Imports: 
+    tibble
+Suggests: 
+    dplyr,
+    readr,
+    testthat
 Encoding: UTF-8
 LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
