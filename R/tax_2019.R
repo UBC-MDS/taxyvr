@@ -37,7 +37,7 @@
 #' @examples
 #' tax_2020
 #'
-#' head(tax_20190)
+#' head(tax_2019)
 #' summary(tax_2019)
 #'
 "tax_2019"

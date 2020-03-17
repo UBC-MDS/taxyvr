@@ -50,7 +50,7 @@ This is data that the city of Vancouver has collected on the properties in Vanco
 \examples{
 tax_2020
 
-head(tax_20190)
+head(tax_2019)
 summary(tax_2019)
 
 }
