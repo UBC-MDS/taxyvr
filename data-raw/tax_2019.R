@@ -11,16 +11,10 @@ raw %>% head()
 
 tax_2019 <- raw %>%
   mutate(
-    LEGAL_TYPE = as.factor(LEGAL_TYPE),
     FOLIO = as.numeric(FOLIO),
     LAND_COORDINATE = as.numeric(LAND_COORDINATE),
-    ZONE_NAME = as.factor(ZONE_NAME),
-    ZONE_CATEGORY = as.factor(ZONE_CATEGORY),
-    PROPERTY_POSTAL_CODE = as.factor(PROPERTY_POSTAL_CODE),
-    NEIGHBOURHOOD_CODE = as.factor(NEIGHBOURHOOD_CODE)
   ) %>%
   rename_all(tolower)
-
 
 
 write_csv(tax_2019, "data-raw/tax_2019.csv")
