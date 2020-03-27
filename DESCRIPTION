@@ -1,5 +1,5 @@
 Package: taxyvr
-Title: This package contains data on Vancouver property tax assessment
+Title: Data from The city of Vancouver's Open Data Portal on Vancouver property tax assessment
 Version: 0.0.0.1
 Authors@R: 
     person(given = "Hayley",
@@ -13,12 +13,15 @@ BugReports: https://github.com/UBC-MDS/taxyvr/issues
 Depends: 
     R (>= 3.6.0)
 Imports: 
-    tibble
-Suggests: 
+    tibble,
     dplyr,
-    readr,
-    testthat
+    readr
+Suggests: 
+    testthat (>= 2.1.0),
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr

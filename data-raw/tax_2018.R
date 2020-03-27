@@ -17,6 +17,7 @@ tax_2018 <- raw %>%
   rename_all(tolower)
 
 
-
-write_csv(tax_2018, "data-raw/tax_2018.csv")
+#write_csv(tax_2018, "data-raw/tax_2018.csv")
 save(tax_2018, file = "data/tax_2018.rda", compress='bzip2')
+saveRDS(tax_2018, "tests/testthat/tax_2018.rds")
+
