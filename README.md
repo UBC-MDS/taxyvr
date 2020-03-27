@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-<img src="logo.svg" width="120" align="right" /> <!-- badges: end -->
+<img src="logo.svg" width="200" align="right" /> <!-- badges: end -->
 
 The goal of taxyvr is to provide an easily way to access the Vancouver
 housing assessment data. This is semi-tidied data obtained from the City
