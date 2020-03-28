@@ -38,7 +38,7 @@ This is data that the city of Vancouver has collected on the properties in Vanco
 \item{report_year}{report_year}
 }}
 \source{
-\url{https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/}, downloaded 2020-03-20
+\url{https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/}, downloaded 2020-03-27
 }
 \usage{
 tax_2019
@@ -48,7 +48,7 @@ VancouverProperty Tax Assessment data
 This is data that the city of Vancouver has collected on the properties in Vancouver for assessment year 2019.
 }
 \examples{
-tax_2020
+tax_2019
 
 head(tax_2019)
 summary(tax_2019)
