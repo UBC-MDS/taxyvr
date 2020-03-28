@@ -21,11 +21,21 @@ install.packages("devtools")
 devtools::install_github("UBC-MDS/taxyvr")
 ```
 
-or if you want to include the vignette:
+### Vignette
+
+You may also access this information through our vignette. First use
+this command for installation:
 
 ``` r
 install.packages("devtools")
 devtools::install_github("UBC-MDS/taxyvr", build_vignettes = TRUE)
+```
+
+And to read the vignette use:
+
+``` r
+library(taxyvr)
+browseVignettes("taxyvr")
 ```
 
 This data was acquired curtesy of [The city of Vancouver’s Open Data
