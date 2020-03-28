@@ -38,7 +38,7 @@ This is data that the city of Vancouver has collected on the properties in Vanco
 \item{report_year}{report_year}
 }}
 \source{
-\url{https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/}, downloaded 2020-03-20
+\url{https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/}, downloaded 2020-03-27chec
 }
 \usage{
 tax_2020

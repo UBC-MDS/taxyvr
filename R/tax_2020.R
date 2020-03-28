@@ -1,7 +1,7 @@
 #' VancouverProperty Tax Assessment data
 #' This is data that the city of Vancouver has collected on the properties in Vancouver for assessment year 2020.
 #'
-#' @source <https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/>, downloaded 2020-03-20
+#' @source <https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/>, downloaded 2020-03-27chec
 #' @format A data frame with columns:
 #' \describe{
 #'  \item{pid}{Property identifier, assigned by Land Title Survey Authority, sourced from BC Assessment records.}

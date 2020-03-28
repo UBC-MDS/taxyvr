@@ -36,12 +36,13 @@ And to read the vignette use:
 ``` r
 library(taxyvr)
 browseVignettes("taxyvr")
+nrow(tax_2014)
 ```
 
 This data was acquired curtesy of [The city of Vancouver’s Open Data
 Portal](https://opendata.vancouver.ca/pages/home/).
 
-This Package contains (currently) 3 main dataframes all with 29 columns
+This Package contains (currently) 7 main dataframes all with 29 columns
 :
 
   - `tax_2020`: This dataset is currently still being updated by the
@@ -52,7 +53,19 @@ This Package contains (currently) 3 main dataframes all with 29 columns
     213182 rows.
   - `tax_2018`: This contains data regarding the properties in vancouver
     for the year 2018. The values in this dataset are also static and it
-    has 209649 rows.
+    has 209649 rows.  
+  - `tax_2017`: This contains data regarding the properties in vancouver
+    for the year 2017. The values in this dataset are also static and it
+    has 206480 rows.  
+  - `tax_2016`: This contains data regarding the properties in vancouver
+    for the year 2016. The values in this dataset are also static and it
+    has 203658 rows.  
+  - `tax_2015`: This contains data regarding the properties in vancouver
+    for the year 2015. The values in this dataset are also static and it
+    has 203494 rows.  
+  - `tax_2014`: This contains data regarding the properties in vancouver
+    for the year 2014. The values in this dataset are also static and it
+    has 200925 rows.
 
 The 29 variables included in the dataset are the following, ([Vancouver
 Open Data Portal documentation

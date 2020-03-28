@@ -1,0 +1,43 @@
+#' VancouverProperty Tax Assessment data
+#' This is data that the city of Vancouver has collected on the properties in Vancouver for assessment year 2014.
+#'
+#' @source <https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/>, downloaded 2020-03-27
+#' @format A data frame with columns:
+#' \describe{
+#'  \item{pid}{Property identifier, assigned by Land Title Survey Authority, sourced from BC Assessment records.}
+#'  \item{legal_type}{Values are 'STRATA', indicating property is part of a Strata Plan, 'LAND' indicating property has a non-strata plan number, or 'OTHER' for properties with no plan number.}
+#'  \item{folio}{A 12-digit identifier for purposes of assessment. Assigned by BC Assessment.}
+#'  \item{land_coordinate}{First 8 digits of BC Assessment's folio number}
+#'  \item{zone_name}{Name of zoning district. Each zoning districts has a corresponding district schedule in the Zoning and Development By-law.}
+#'  \item{zone_category}{Name of zoning category.}
+#'  \item{block}{Component of legal description which is assigned by Land Title Survey Authority,.}
+#'  \item{plan}{Component of legal description which is assigned by Land Title Survey Authority.}
+#'  \item{district_lot}{Component of legal description which is assigned by Land Title Survey Authority.}
+#'  \item{lot}{Component of legal description which is assigned by Land Title Survey Authority.}
+#'  \item{from_civic_number}{This is the house number, it may be the first number in a range.}
+#'  \item{to_civic_number}{Blank unless it is the last house number in a range.}
+#'  \item{street_name}{The name of the street where the property is located.}
+#'  \item{property_postal_code}{A series of letters and/or digits that is attached to a property address.}
+#'  \item{narrative_legal_line1}{Describes a property for registration purposes, assigned by Land Title Survey Authority}
+#'  \item{narrative_legal_line2}{Describes a property for registration purposes, assigned by Land Title Survey Authority}
+#'  \item{narrative_legal_line3}{Describes a property for registration purposes,  assigned by Land Title Survey Authority}
+#'  \item{narrative_legal_line4}{Describes a property for registration purposes, assigned by Land Title Survey Authority}
+#'  \item{narrative_legal_line5}{Describes a property for registration purposes, assigned by Land Title Survey Authority}
+#'  \item{current_land_value}{The market value of the fee simple interest in land and improvements. This is the actual value; it differs from taxable value which is net of exemptions and which may also be averaged.}
+#'  \item{current_improvement_value}{The market value of the fee simple interest in land and improvements. This is the actual value; it differs from taxable value which is net of exemptions and which may also be averaged.}
+#'  \item{tax_assessment_year}{Year in effect for Current_Land_Value, Current_Improvement_Value and Tax_Levy}
+#'  \item{previous_improvement_value}{This value is for the previous assessment year.}
+#'  \item{previous_land_value}{This value is for the previous assessment year. }
+#'  \item{year_built}{Year that the property was built. }
+#'  \item{big_improvement_year}{Year of major improvement to the property}
+#'  \item{tax_levy}{This is the total taxes printed on the most recent tax notice.  It includes the City's general levy,levies for all taxing authorities, utilities, local improvements and miscellaneous charges}
+#'  \item{neighbourhood_code}{This is a 3-digit number assigned by BCA which identifies the neighbourhood for the folio.}
+#'  \item{report_year}{report_year}
+#' }
+#' @examples
+#' tax_2014
+#'
+#' head(tax_2014)
+#' summary(tax_2014)
+
+"tax_2014"
