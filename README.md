@@ -17,8 +17,15 @@ You can install the development version from
 [GitHub](https://github.com/UBC-MDS/taxyvr) with:
 
 ``` r
-# install.packages("devtools")
+install.packages("devtools")
 devtools::install_github("UBC-MDS/taxyvr")
+```
+
+or if you want to include the vignette:
+
+``` r
+install.packages("devtools")
+devtools::install_github("UBC-MDS/taxyvr", build_vignettes = TRUE)
 ```
 
 This data was acquired curtesy of [The city of Vancouver’s Open Data
@@ -28,7 +35,7 @@ This Package contains (currently) 3 main dataframes all with 29 columns
 :
 
   - `tax_2020`: This dataset is currently still being updated by the
-    city as it’s still the current year. It currently has 213582 rows
+    city as it’s still the current year. It currently has 213576 rows
     for properties in 2020
   - `tax_2019`: This contains data regarding the properties in vancouver
     for the year 2019. The values in this dataset are static and it has
@@ -212,14 +219,16 @@ citation("taxyvr")
 #> 
 #> To cite package 'taxyvr' in publications use:
 #> 
-#>   Hayley Boyce (2020). taxyvr: This package contains data on Vancouver
-#>   property tax assessment. https://github.com/UBC-MDS/taxyvr/,
+#>   Hayley Boyce (2020). taxyvr: Data from The city of Vancouver's Open
+#>   Data Portal on Vancouver property tax assessment.
+#>   https://github.com/UBC-MDS/taxyvr/,
 #>   https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
-#>     title = {taxyvr: This package contains data on Vancouver property tax assessment},
+#>     title = {taxyvr: Data from The city of Vancouver's Open Data Portal on Vancouver
+#> property tax assessment},
 #>     author = {Hayley Boyce},
 #>     year = {2020},
 #>     note = {https://github.com/UBC-MDS/taxyvr/,

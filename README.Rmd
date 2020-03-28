@@ -26,11 +26,19 @@ The goal of taxyvr is to provide an easily way to access the Vancouver housing a
 
 You can install the development version from [GitHub](https://github.com/UBC-MDS/taxyvr) with:
 
-``` r
-# install.packages("devtools")
+```{r eval=FALSE}
+install.packages("devtools")
 devtools::install_github("UBC-MDS/taxyvr")
-
 ```
+
+
+or if you want to include the vignette: 
+
+```{r eval=FALSE}
+install.packages("devtools")
+devtools::install_github("UBC-MDS/taxyvr", build_vignettes = TRUE)
+```
+
 
 This data was acquired curtesy of [The city of Vancouver's Open Data Portal](https://opendata.vancouver.ca/pages/home/). 
 
