@@ -31,12 +31,19 @@ install.packages("devtools")
 devtools::install_github("UBC-MDS/taxyvr")
 ```
 
-
-or if you want to include the vignette: 
+### Vignette 
+You may also access this information through our vignette. First use this command for installation: 
 
 ```{r eval=FALSE}
 install.packages("devtools")
 devtools::install_github("UBC-MDS/taxyvr", build_vignettes = TRUE)
+```
+
+And to read the vignette use: 
+
+```{r eval=FALSE}
+library(taxyvr)
+browseVignettes("taxyvr")
 ```
 
 
