@@ -232,9 +232,7 @@ use](https://opendata.vancouver.ca/pages/licence/).
 
 ## Citation
 
-Run this command to get info on how to cite this package. If you’ve
-installed gapminder from CRAN, the year will be populated and populated
-correctly (unlike below).
+Run this command to get info on how to cite this package.
 
 ``` r
 citation("taxyvr")
