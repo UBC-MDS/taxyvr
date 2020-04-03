@@ -103,7 +103,7 @@ The 29 variables included in the dataset are the following, ([Vancouver Open Dat
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example}
+```{r example, message=FALSE}
 library(dplyr)
 library(taxyvr)
 
