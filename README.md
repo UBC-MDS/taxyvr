@@ -7,7 +7,7 @@
 
 <img src="logo.svg" width="200" align="right" /> <!-- badges: end -->
 
-The goal of taxyvr is to provide an easily way to access the Vancouver
+The goal of taxyvr is to provide an easy way to access the Vancouver
 housing assessment data. This is semi-tidied data obtained from the City
 of Vancouver’s Open Data Portal.
 
@@ -36,10 +36,9 @@ And to read the vignette use:
 ``` r
 library(taxyvr)
 browseVignettes("taxyvr")
-nrow(tax_2014)
 ```
 
-This data was acquired curtesy of [The city of Vancouver’s Open Data
+This data was acquired courtesy of [The city of Vancouver’s Open Data
 Portal](https://opendata.vancouver.ca/pages/home/).
 
 This Package contains (currently) 7 main dataframes all with 29 columns
