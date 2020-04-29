@@ -18,7 +18,7 @@ library(taxyvr)
 This data was acquired curtesy of [The city of Vancouver's Open Data Portal](https://opendata.vancouver.ca/pages/home/). 
 
 
-This Package contains (currently) 7 main dataframes all with 29 columns :
+This Package contains (currently) 7 main dataframes all with 32 columns :
 
   * `tax_2020`: This dataset is currently still being updated by the city as it's still the current year. It currently has `r nrow(tax_2020)` rows for properties in 2020
   * `tax_2019`: This contains data regarding the properties in vancouver for the year 2019. The values in this dataset are static and it has `r nrow(tax_2019)` rows. 
@@ -30,7 +30,7 @@ This Package contains (currently) 7 main dataframes all with 29 columns :
 
 
 
-The 29 variables included in the dataset are the following, ([Vancouver Open Data Portal documentation page](http://www.gapminder.org/data/documentation/)):
+The 32 variables included in the dataset are the following, ([Vancouver Open Data Portal documentation page](http://www.gapminder.org/data/documentation/)):
 
 | Variable            | Meaning                                             | Type   | Sample |
 |:--------------------|:----------------------------------------------------|:-------|:-------|
@@ -60,10 +60,12 @@ The 29 variables included in the dataset are the following, ([Vancouver Open Dat
 | previous_land_value  | This value is for the previous assessment year | dbl    | <nobr>262000</nobr>   |
 | year_built  |Year that the property was built | dbl    | <nobr>1989</nobr>   |
 | big_improvement_year  |Year of major improvement to the property | dbl    | <nobr>1989</nobr>   |
-| tax_levy  |This is the total taxes printed on the most recent tax notice.  It includes the City's general levy, levies for all taxing authorities, utilities, local improvements and miscellaneous charges.| dbl    | <nobr>5361.97</nobr>   |
-| tax_levy  |This is the total taxes printed on the most recent tax notice.  It includes the City's general levy, levies for all taxing authorities, utilities, local improvements and miscellaneous charges.| dbl    | <nobr>5361.97</nobr>   |
+| tax_levy  |This is the total taxes printed on the most recent tax notice.  It includes the City's general levy, levies for all taxing authorities, utilities, local improvements and miscellaneous charges| dbl    | <nobr>5361.97</nobr>   |
 | neighbourhood_code  |This is a 3-digit number assigned by BCA which identifies the neighbourhood for the folio| chr    | <nobr>018</nobr>   |
 | report_year  | The report year | dbl    | <nobr>2018</nobr>   |
+|geo_local_area | The local area where the feature is found, derived from the feature's coordinates or address in the source system. The City has 22 local areas (also known as local planning areas)| chr |  <nobr>West Point Grey</nobr> |
+|longitude|Longitude coordinate | dbl | -123.10050569761258 |
+|latitude|Latitude coordinate | dbl | 49.2207524614659 | 
 
 
 
