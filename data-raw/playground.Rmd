@@ -126,6 +126,12 @@ second_ll %>% filter(is.na(longitude))
 
 
 ```{r}
+API_KEY= ""
+
+register_google(key = API_KEY)
+```
+
+```{r}
 ll_df %>% mu
 browseVignettes("taxyvr")
 ```
