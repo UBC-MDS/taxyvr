@@ -1,17 +1,11 @@
 library(dplyr)
 library(readr)
 
-
 raw <-
   read_csv2(
     "https://opendata.vancouver.ca/explore/dataset/property-tax-report/download/?format=csv&refine.report_year=2018&timezone=America/Los_Angeles&lang=en&use_labels_for_header=true&csv_separator=%3B"
   )
 
-<<<<<<< HEAD
-=======
-raw %>% head()
-
->>>>>>> c783b1e739ed7692b027b7cc36068b49afcd382b
 tax_2018 <- raw %>%
   mutate(
     FOLIO = as.numeric(FOLIO),
@@ -19,7 +13,7 @@ tax_2018 <- raw %>%
   ) %>%
   rename_all(tolower)
 
-<<<<<<< HEAD
+
 # read in addresses
 addresses <-  get(load(file = "data-raw/addresses.rda"))
 
@@ -73,9 +67,6 @@ second_ll <- second_ll %>%
   rename(geo_local_area=`Geo Local Area`)
 
 tax_2018 <- second_ll
-
-=======
->>>>>>> c783b1e739ed7692b027b7cc36068b49afcd382b
 
 #write_csv(tax_2018, "data-raw/tax_2018.csv")
 save(tax_2018, file = "data/tax_2018.rda", compress='bzip2')
