@@ -1,6 +1,9 @@
 library(dplyr)
 library(readr)
+<<<<<<< HEAD
 library(ggmap)
+=======
+>>>>>>> c783b1e739ed7692b027b7cc36068b49afcd382b
 
 
 raw <-
@@ -8,6 +11,11 @@ raw <-
     "https://opendata.vancouver.ca/explore/dataset/property-tax-report/download/?format=csv&refine.report_year=2020&timezone=America/Los_Angeles&lang=en&use_labels_for_header=true&csv_separator=%3B"
   )
 
+<<<<<<< HEAD
+=======
+raw %>% head()
+
+>>>>>>> c783b1e739ed7692b027b7cc36068b49afcd382b
 tax_2020 <- raw %>%
   mutate(
     FOLIO = as.numeric(FOLIO),
@@ -16,6 +24,7 @@ tax_2020 <- raw %>%
   rename_all(tolower)
 
 
+<<<<<<< HEAD
 # read in addresses
 addresses <-  get(load(file = "data-raw/addresses.rda"))
 
@@ -74,3 +83,8 @@ tax_2020 <- second_ll
 save(tax_2020, file = "data/tax_2020.rda", compress='bzip2')
 saveRDS(tax_2020, "tests/testthat/tax_2020.rds")
 
+=======
+#write_csv(tax_2020, "data-raw/tax_2020.csv")
+save(tax_2020, file = "data/tax_2020.rda", compress='bzip2')
+saveRDS(tax_2020, "tests/testthat/tax_2020.rds")
+>>>>>>> c783b1e739ed7692b027b7cc36068b49afcd382b

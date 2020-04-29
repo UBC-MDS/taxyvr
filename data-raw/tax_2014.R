@@ -7,6 +7,11 @@ raw <-
     "https://opendata.vancouver.ca/explore/dataset/property-tax-report/download/?format=csv&refine.report_year=2014&timezone=America/Los_Angeles&lang=en&use_labels_for_header=true&csv_separator=%3B"
   )
 
+<<<<<<< HEAD
+=======
+raw %>% head()
+
+>>>>>>> c783b1e739ed7692b027b7cc36068b49afcd382b
 tax_2014 <- raw %>%
   mutate(
     FOLIO = as.numeric(FOLIO),
@@ -14,6 +19,7 @@ tax_2014 <- raw %>%
   ) %>%
   rename_all(tolower)
 
+<<<<<<< HEAD
 # read in addresses
 addresses <-  get(load(file = "data-raw/addresses.rda"))
 
@@ -67,6 +73,8 @@ second_ll <- second_ll %>%
   rename(geo_local_area=`Geo Local Area`)
 
 tax_2014 <- second_ll
+=======
+>>>>>>> c783b1e739ed7692b027b7cc36068b49afcd382b
 
 #write_csv(tax_2014, "data-raw/tax_2014.csv")
 save(tax_2014, file = "data/tax_2014.rda", compress='bzip2')
