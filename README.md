@@ -38,69 +38,52 @@ library(taxyvr)
 browseVignettes("taxyvr")
 ```
 
-This data was acquired courtesy of [The city of Vancouver’s Open Data
-Portal](https://opendata.vancouver.ca/pages/home/).
+This data was acquired curtesy of [The city of Vancouver's Open Data Portal](https://opendata.vancouver.ca/pages/home/). 
 
-This Package contains (currently) 7 main dataframes all with 29 columns
-:
 
-  - `tax_2020`: This dataset is currently still being updated by the
-    city as it’s still the current year. It currently has 213576 rows
-    for properties in 2020
-  - `tax_2019`: This contains data regarding the properties in vancouver
-    for the year 2019. The values in this dataset are static and it has
-    213182 rows.
-  - `tax_2018`: This contains data regarding the properties in vancouver
-    for the year 2018. The values in this dataset are also static and it
-    has 209649 rows.  
-  - `tax_2017`: This contains data regarding the properties in vancouver
-    for the year 2017. The values in this dataset are also static and it
-    has 206480 rows.  
-  - `tax_2016`: This contains data regarding the properties in vancouver
-    for the year 2016. The values in this dataset are also static and it
-    has 203658 rows.  
-  - `tax_2015`: This contains data regarding the properties in vancouver
-    for the year 2015. The values in this dataset are also static and it
-    has 203494 rows.  
-  - `tax_2014`: This contains data regarding the properties in vancouver
-    for the year 2014. The values in this dataset are also static and it
-    has 200925 rows.
+This Package contains (currently) 3 main dataframes all with 32 columns :
 
-The 29 variables included in the dataset are the following, ([Vancouver
-Open Data Portal documentation
-page](http://www.gapminder.org/data/documentation/)):
+  * `tax_2020`: This dataset is currently still being updated by the city as it's still the current year. It currently has `r nrow(tax_2020)` rows for properties in 2020
+  * `tax_2019`: This contains data regarding the properties in vancouver for the year 2019. The values in this dataset are static and it has `r nrow(tax_2019)` rows. 
+  * `tax_2018`: This contains data regarding the properties in vancouver for the year 2018. The values in this dataset are also static and it has `r nrow(tax_2018)` rows.  
 
-| Variable                     | Meaning                                                                                                                                                                                         | Type | Sample                                         |
-| :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--- | :--------------------------------------------- |
-| pid                          | Property identifier                                                                                                                                                                             | chr  | <nobr>014-193-205</nobr>                       |
-| legal\_type                  | Values are ‘STRATA’, indicating property is part of a Strata Plan, ‘LAND’ indicating property has a non-strata plan number, or ‘OTHER’ for properties with no plan number                       | chr  | STRATA                                         |
-| folio                        | A 12-digit identifier for purposes of assessment                                                                                                                                                | dbl  | <nobr>151843410011</nobr>                      |
-| land\_coordinate             | First 8 digits of BC Assessment’s folio number                                                                                                                                                  | dbl  | <nobr>15184341</nobr>                          |
-| zone\_name                   | Name of zoning district                                                                                                                                                                         | chr  | <nobr>M-2</nobr>                               |
-| zone\_category               | Name of zoning category                                                                                                                                                                         | chr  | <nobr>Industrial</nobr>                        |
-| block                        | Component of legal description                                                                                                                                                                  | chr  | <nobr>155</nobr>                               |
-| plan                         | Component of legal description                                                                                                                                                                  | chr  | <nobr>VAS2438</nobr>                           |
-| district\_lot                | Component of legal description                                                                                                                                                                  | chr  | <nobr>319</nobr>                               |
-| lot                          | Component of legal description                                                                                                                                                                  | chr  | <nobr>11</nobr>                                |
-| from\_civic\_number          | This is the house number, it may be the first number in a range                                                                                                                                 | chr  | <nobr>3594</nobr>                              |
-| to\_civic\_number            | Blank unless it is the last house number in a range                                                                                                                                             | chr  | <nobr>9141</nobr>                              |
-| street\_name                 | The name of the street where the property is located                                                                                                                                            | chr  | <nobr>SHAUGHNESSY ST</nobr>                    |
-| property\_postal\_code       | A series of letters and/or digits that is attached to a property address                                                                                                                        | chr  | <nobr>V6P 6R9</nobr>                           |
-| narrative\_legal\_line3      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>SHARE IN COM PROP THEREIN</nobr>         |
-| narrative\_legal\_line2      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>319 NEW WESTMINSTER UNDIV 74/1341</nobr> |
-| narrative\_legal\_line1      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>DIV 376/127 LOT 220 PLAN LMS1863 </nobr> |
-| narrative\_legal\_line4      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>WESTMINSTER LAND DIST</nobr>             |
-| narrative\_legal\_line5      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>BLOCK 17, PLAN VAP5928 /nobr\>           |
-| current\_land\_value         | The market value of the fee simple interest in land and improvements                                                                                                                            | dbl  | <nobr>397000</nobr>                            |
-| current\_improvement\_value  | The market value of the fee simple interest in land and improvements                                                                                                                            | dbl  | <nobr>107000</nobr>                            |
-| tax\_assessment\_year        | Year in effect for Current\_Land\_Value, Current\_Improvement\_Value and Tax\_Levy                                                                                                              | dbl  | <nobr>2018</nobr>                              |
-| previous\_improvement\_value | Year in effect for Current\_Land\_Value, Current\_Improvement\_Value and Tax\_Levy                                                                                                              | dbl  | <nobr>112000</nobr>                            |
-| previous\_land\_value        | This value is for the previous assessment year                                                                                                                                                  | dbl  | <nobr>262000</nobr>                            |
-| year\_built                  | Year that the property was built                                                                                                                                                                | dbl  | <nobr>1989</nobr>                              |
-| big\_improvement\_year       | Year of major improvement to the property                                                                                                                                                       | dbl  | <nobr>1989</nobr>                              |
-| tax\_levy                    | This is the total taxes printed on the most recent tax notice. It includes the City’s general levy, levies for all taxing authorities, utilities, local improvements and miscellaneous charges. | dbl  | <nobr>5361.97</nobr>                           |
-| neighbourhood\_code          | This is a 3-digit number assigned by BCA which identifies the neighbourhood for the folio                                                                                                       | chr  | <nobr>018</nobr>                               |
-| report\_year                 | The report year                                                                                                                                                                                 | dbl  | <nobr>2018</nobr>                              |
+
+The 32 variables included in the dataset are the following, ([Vancouver Open Data Portal documentation page](http://www.gapminder.org/data/documentation/)):
+
+| Variable            | Meaning                                             | Type   | Sample |
+|:--------------------|:----------------------------------------------------|:-------|:-------|
+| pid                 |   Property identifier                               | chr    | <nobr>014-193-205</nobr>   |
+| legal_type          |  Values are 'STRATA', indicating property is part of a Strata Plan,   'LAND' indicating property has a non-strata plan number,   or 'OTHER' for properties with no plan number | chr | STRATA
+| folio               |  A 12-digit identifier for purposes of assessment   | dbl    | <nobr>151843410011</nobr>   |
+| land_coordinate     |  First 8 digits of BC Assessment's folio number     | dbl    | <nobr>15184341</nobr>   |
+| zone_name           |  Name of zoning district                            | chr    | <nobr>M-2</nobr>   |
+| zone_category       |  Name of zoning category                            | chr    | <nobr>Industrial</nobr>   |
+| block               | Component of legal description                      | chr    | <nobr>155</nobr>   |
+| plan                | Component of legal description                      | chr    | <nobr>VAS2438</nobr>   |
+| district_lot        | Component of legal description                      | chr    | <nobr>319</nobr>   |
+| lot                 | Component of legal description                      | chr    | <nobr>11</nobr>   |
+| from_civic_number   | This is the house number, it may be the first number in a range  | chr    | <nobr>3594</nobr>   |
+| to_civic_number     | Blank unless it is the last house number in a range | chr    | <nobr>9141</nobr>   |
+| street_name         |The name of the street where the property is located | chr    | <nobr>SHAUGHNESSY ST</nobr>   |
+| property_postal_code|A series of letters and/or digits that is attached to a property address | chr    | <nobr>V6P 6R9</nobr>   |
+| narrative_legal_line3|Describes a property for registration purposes | chr    | <nobr>SHARE IN COM PROP THEREIN</nobr>   |
+| narrative_legal_line2|Describes a property for registration purposes | chr    | <nobr>319  NEW WESTMINSTER UNDIV 74/1341</nobr>   |
+| narrative_legal_line1|Describes a property for registration purposes | chr    | <nobr>DIV 376/127 LOT 220 PLAN LMS1863 </nobr>   |
+| narrative_legal_line4|Describes a property for registration purposes | chr    | <nobr>WESTMINSTER LAND DIST</nobr>   |
+| narrative_legal_line5|Describes a property for registration purposes | chr    | <nobr>BLOCK 17, PLAN VAP5928 /nobr>   |
+| current_land_value  | The market value of the fee simple interest in land and improvements   | dbl    | <nobr>397000</nobr>   |
+| current_improvement_value  | The market value of the fee simple interest in land and improvements   | dbl    | <nobr>107000</nobr>   |
+| tax_assessment_year  |Year in effect for Current_Land_Value, Current_Improvement_Value and Tax_Levy | dbl    | <nobr>2018</nobr>   |
+| previous_improvement_value  |Year in effect for Current_Land_Value, Current_Improvement_Value and Tax_Levy| dbl    | <nobr>112000</nobr>   |
+| previous_land_value  | This value is for the previous assessment year | dbl    | <nobr>262000</nobr>   |
+| year_built  |Year that the property was built | dbl    | <nobr>1989</nobr>   |
+| big_improvement_year  |Year of major improvement to the property | dbl    | <nobr>1989</nobr>   |
+| tax_levy  |This is the total taxes printed on the most recent tax notice.  It includes the City's general levy, levies for all taxing authorities, utilities, local improvements and miscellaneous charges| dbl    | <nobr>5361.97</nobr>   |
+| neighbourhood_code  |This is a 3-digit number assigned by BCA which identifies the neighbourhood for the folio| chr    | <nobr>018</nobr>   |
+| report_year  | The report year | dbl    | <nobr>2018</nobr>   |
+|geo_local_area | The local area where the feature is found, derived from the feature's coordinates or address in the source system. The City has 22 local areas (also known as local planning areas)| chr |  <nobr>West Point Grey</nobr> |
+|longitude|Longitude coordinate | dbl | -123.10050569761258 |
+|latitide|Latitide coordinate| dbl |49.2207524614659 | 
 
 ## Example
 
