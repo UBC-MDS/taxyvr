@@ -61,10 +61,10 @@ second_ll <- ll_df %>% left_join(new_coords_xtra_a, by="full_address")
 
 # replace the na latitude and longitude values and remove unneeded columns 
 second_ll <- second_ll %>% 
-  mutate(latitude = ifelse(is.na(latitude), lat, latitude),
-         longitude = ifelse(is.na(longitude), lon, longitude)) %>% 
-  select(-lat, -lon, -address, -full_address, -CIVIC_NUMBER, -P_PARCEL_ID, -SITE_ID) %>%
-  rename(geo_local_area=`Geo Local Area`)
+ # mutate(latitude = ifelse(is.na(latitude), lat, latitude),
+  #       longitude = ifelse(is.na(longitude), lon, longitude)) %>% 
+  #select(-lat, -lon, -address, -full_address, -CIVIC_NUMBER, -P_PARCEL_ID, -SITE_ID) %>% 
+ rename(geo_local_area=`Geo Local Area`)
 
 
 
