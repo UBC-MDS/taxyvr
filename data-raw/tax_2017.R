@@ -1,5 +1,6 @@
 library(dplyr)
 library(readr)
+library(ggmap)
 
 
 raw <-
@@ -46,8 +47,8 @@ ll_df$full_address <- paste(ll_df$to_civic_number,
 # find the values that are missing coordinates
 missing = ll_df %>% filter(is.na(latitude))
 
-# make sure to register you API KEY first 
-# register_google(key = API_KEY)
+ # make sure to register you API KEY first 
+ register_google(key = API_KEY)
 
 # Use google API to get missing coordinates
 new_coords <-  geocode(missing$full_address,output = "latlona", source = "google")
@@ -66,7 +67,10 @@ second_ll <- second_ll %>%
   select(-lat, -lon, -address, -full_address, -CIVIC_NUMBER, -P_PARCEL_ID, -SITE_ID) %>%
   rename(geo_local_area=`Geo Local Area`)
 
-tax_2017 <- second_ll
+second_ll %>% filter(is.na(longitude))
+
+# remove duplicates and rows should match # available on the website report 
+tax_2017 <- second_ll %>% unique()
 
 #write_csv(tax_2017, "data-raw/tax_2017.csv")
 save(tax_2017, file = "data/tax_2017.rda", compress='bzip2')

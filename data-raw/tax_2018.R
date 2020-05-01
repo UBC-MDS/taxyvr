@@ -1,6 +1,6 @@
 library(dplyr)
 library(readr)
-
+library(ggmap)
 
 raw <-
   read_csv2(
@@ -66,7 +66,10 @@ second_ll <- second_ll %>%
   select(-lat, -lon, -address, -full_address, -CIVIC_NUMBER, -P_PARCEL_ID, -SITE_ID) %>%
   rename(geo_local_area=`Geo Local Area`)
 
-tax_2018 <- second_ll
+second_ll %>% filter(is.na(longitude))
+
+# remove duplicates and rows should match # available on the website report 
+tax_2018 <- second_ll %>% unique()
 
 
 #write_csv(tax_2018, "data-raw/tax_2018.csv")

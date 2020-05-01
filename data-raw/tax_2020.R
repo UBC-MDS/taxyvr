@@ -68,7 +68,10 @@ second_ll <- second_ll %>%
   select(-lat, -lon, -address, -full_address, -CIVIC_NUMBER, -P_PARCEL_ID, -SITE_ID) %>%
   rename(geo_local_area=`Geo Local Area`)
 
-tax_2020 <- second_ll
+second_ll %>% filter(is.na(longitude))
+
+# remove duplicates and rows should match # available on the website report 
+tax_2020 <- second_ll %>% unique()
 
 #write_csv(tax_2020, "data-raw/tax_2020.csv")
 save(tax_2020, file = "data/tax_2020.rda", compress='bzip2')
