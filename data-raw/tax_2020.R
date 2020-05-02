@@ -46,7 +46,7 @@ ll_df$full_address <- paste(ll_df$to_civic_number,
 
 
 # find the values that are missing coordinates
-missing = ll_df %>% filter(is.na(latitude))
+missing <-  ll_df %>% filter(is.na(latitude))
 
 # make sure to register you API KEY first 
 # register_google(key = API_KEY)
