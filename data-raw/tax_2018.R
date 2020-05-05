@@ -1,6 +1,7 @@
 library(dplyr)
 library(readr)
 library(ggmap)
+library(tidyverse)
 
 raw <-
   read_csv2(
