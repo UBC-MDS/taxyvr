@@ -1,11 +1,14 @@
 Package: taxyvr
 Title: Data from The city of Vancouver's Open Data Portal on Vancouver property tax assessment
 Version: 0.0.0.1
-Authors@R: 
-    person(given = "Hayley",
+Authors@R: c(person(given = "Hayley",
            family = "Boyce",
            role = c("aut", "cre"),
-           email = "hayleyfboyce@gmail.com")
+           email = "hayleyfboyce@gmail.com"),
+        person(given = "Jordan",
+           family = "Bourak",
+           role = c("aut", "ctb"),
+           email = "jbourak@pm.me"))
 Description: This is a semi-tidied data obtained from the City of Vancouver's Open Data Portal. It contains information on Vancouver property tax from the BC assessment.
 License: MIT + file LICENSE
 URL: https://github.com/UBC-MDS/taxyvr
