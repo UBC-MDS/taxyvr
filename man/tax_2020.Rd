@@ -5,7 +5,8 @@
 \alias{tax_2020}
 \title{VancouverProperty Tax Assessment data
 This is data that the city of Vancouver has collected on the properties in Vancouver for assessment year 2020.}
-\format{A data frame with columns:
+\format{
+A data frame with columns:
 \describe{
 \item{pid}{Property identifier, assigned by Land Title Survey Authority, sourced from BC Assessment records.}
 \item{legal_type}{Values are 'STRATA', indicating property is part of a Strata Plan, 'LAND' indicating property has a non-strata plan number, or 'OTHER' for properties with no plan number.}
@@ -39,7 +40,8 @@ This is data that the city of Vancouver has collected on the properties in Vanco
 \item{geo_local_area}{The local area where the feature is found, derived from the feature's coordinates or address in the source system. The City has 22 local areas (also known as local planning areas)}
 \item{longitude}{Longitude coordinate}
 \item{latitude}{Latitude coordinate}
-}}
+}
+}
 \source{
 \url{https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/}, downloaded 2020-03-27chec
 }

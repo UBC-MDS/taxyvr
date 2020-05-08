@@ -5,7 +5,8 @@
 \alias{tax_2016}
 \title{VancouverProperty Tax Assessment data
 This is data that the city of Vancouver has collected on the properties in Vancouver for assessment year 2016.}
-\format{A data frame with columns:
+\format{
+A data frame with columns:
 \describe{
 \item{pid}{Property identifier, assigned by Land Title Survey Authority, sourced from BC Assessment records.}
 \item{legal_type}{Values are 'STRATA', indicating property is part of a Strata Plan, 'LAND' indicating property has a non-strata plan number, or 'OTHER' for properties with no plan number.}
@@ -36,7 +37,11 @@ This is data that the city of Vancouver has collected on the properties in Vanco
 \item{tax_levy}{This is the total taxes printed on the most recent tax notice.  It includes the City's general levy,levies for all taxing authorities, utilities, local improvements and miscellaneous charges}
 \item{neighbourhood_code}{This is a 3-digit number assigned by BCA which identifies the neighbourhood for the folio.}
 \item{report_year}{report_year}
-}}
+\item{geo_local_area}{The local area where the feature is found, derived from the feature's coordinates or address in the source system. The City has 22 local areas (also known as local planning areas)}
+\item{longitude}{Longitude coordinate}
+\item{latitude}{Latitude coordinate}
+}
+}
 \source{
 \url{https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/}, downloaded 2020-03-27
 }

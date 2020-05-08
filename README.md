@@ -5,7 +5,9 @@
 
 <!-- badges: start -->
 
-<img src="logo.svg" width="200" align="right" /> <!-- badges: end -->
+<img src="logo.svg" width="200" align="right" /> [![R build
+status](https://github.com/UBC-MDS/taxyvr/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/taxyvr/actions)
+<!-- badges: end -->
 
 The goal of taxyvr is to provide an easy way to access the Vancouver
 housing assessment data. This is semi-tidied data obtained from the City
@@ -38,52 +40,70 @@ library(taxyvr)
 browseVignettes("taxyvr")
 ```
 
-This data was acquired curtesy of [The city of Vancouver's Open Data Portal](https://opendata.vancouver.ca/pages/home/). 
+This data was acquired courtesy of [The city of Vancouver’s Open Data
+Portal](https://opendata.vancouver.ca/pages/home/).
 
+This Package contains (currently) 7 main dataframes all with 29 columns
+:
 
-This Package contains (currently) 3 main dataframes all with 32 columns :
+  - `tax_2020`: This dataset is currently still being updated by the
+    city as it’s still the current year. It currently has 213761 rows
+    for properties in 2020
+  - `tax_2019`: This contains data regarding the properties in vancouver
+    for the year 2019. The values in this dataset are static and it has
+    213184 rows.
+  - `tax_2018`: This contains data regarding the properties in vancouver
+    for the year 2018. The values in this dataset are also static and it
+    has 209842 rows.  
+  - `tax_2017`: This contains data regarding the properties in vancouver
+    for the year 2017. The values in this dataset are also static and it
+    has 206480 rows.  
+  - `tax_2016`: This contains data regarding the properties in vancouver
+    for the year 2016. The values in this dataset are also static and it
+    has 203658 rows.  
+  - `tax_2015`: This contains data regarding the properties in vancouver
+    for the year 2015. The values in this dataset are also static and it
+    has 203494 rows.  
+  - `tax_2014`: This contains data regarding the properties in vancouver
+    for the year 2014. The values in this dataset are also static and it
+    has 200925 rows.
 
-  * `tax_2020`: This dataset is currently still being updated by the city as it's still the current year. It currently has `r nrow(tax_2020)` rows for properties in 2020
-  * `tax_2019`: This contains data regarding the properties in vancouver for the year 2019. The values in this dataset are static and it has `r nrow(tax_2019)` rows. 
-  * `tax_2018`: This contains data regarding the properties in vancouver for the year 2018. The values in this dataset are also static and it has `r nrow(tax_2018)` rows.  
+The 29 variables included in the dataset are the following, ([Vancouver
+Open Data Portal documentation
+page](http://www.gapminder.org/data/documentation/)):
 
-
-The 32 variables included in the dataset are the following, ([Vancouver Open Data Portal documentation page](http://www.gapminder.org/data/documentation/)):
-
-| Variable            | Meaning                                             | Type   | Sample |
-|:--------------------|:----------------------------------------------------|:-------|:-------|
-| pid                 |   Property identifier                               | chr    | <nobr>014-193-205</nobr>   |
-| legal_type          |  Values are 'STRATA', indicating property is part of a Strata Plan,   'LAND' indicating property has a non-strata plan number,   or 'OTHER' for properties with no plan number | chr | STRATA
-| folio               |  A 12-digit identifier for purposes of assessment   | dbl    | <nobr>151843410011</nobr>   |
-| land_coordinate     |  First 8 digits of BC Assessment's folio number     | dbl    | <nobr>15184341</nobr>   |
-| zone_name           |  Name of zoning district                            | chr    | <nobr>M-2</nobr>   |
-| zone_category       |  Name of zoning category                            | chr    | <nobr>Industrial</nobr>   |
-| block               | Component of legal description                      | chr    | <nobr>155</nobr>   |
-| plan                | Component of legal description                      | chr    | <nobr>VAS2438</nobr>   |
-| district_lot        | Component of legal description                      | chr    | <nobr>319</nobr>   |
-| lot                 | Component of legal description                      | chr    | <nobr>11</nobr>   |
-| from_civic_number   | This is the house number, it may be the first number in a range  | chr    | <nobr>3594</nobr>   |
-| to_civic_number     | Blank unless it is the last house number in a range | chr    | <nobr>9141</nobr>   |
-| street_name         |The name of the street where the property is located | chr    | <nobr>SHAUGHNESSY ST</nobr>   |
-| property_postal_code|A series of letters and/or digits that is attached to a property address | chr    | <nobr>V6P 6R9</nobr>   |
-| narrative_legal_line3|Describes a property for registration purposes | chr    | <nobr>SHARE IN COM PROP THEREIN</nobr>   |
-| narrative_legal_line2|Describes a property for registration purposes | chr    | <nobr>319  NEW WESTMINSTER UNDIV 74/1341</nobr>   |
-| narrative_legal_line1|Describes a property for registration purposes | chr    | <nobr>DIV 376/127 LOT 220 PLAN LMS1863 </nobr>   |
-| narrative_legal_line4|Describes a property for registration purposes | chr    | <nobr>WESTMINSTER LAND DIST</nobr>   |
-| narrative_legal_line5|Describes a property for registration purposes | chr    | <nobr>BLOCK 17, PLAN VAP5928 /nobr>   |
-| current_land_value  | The market value of the fee simple interest in land and improvements   | dbl    | <nobr>397000</nobr>   |
-| current_improvement_value  | The market value of the fee simple interest in land and improvements   | dbl    | <nobr>107000</nobr>   |
-| tax_assessment_year  |Year in effect for Current_Land_Value, Current_Improvement_Value and Tax_Levy | dbl    | <nobr>2018</nobr>   |
-| previous_improvement_value  |Year in effect for Current_Land_Value, Current_Improvement_Value and Tax_Levy| dbl    | <nobr>112000</nobr>   |
-| previous_land_value  | This value is for the previous assessment year | dbl    | <nobr>262000</nobr>   |
-| year_built  |Year that the property was built | dbl    | <nobr>1989</nobr>   |
-| big_improvement_year  |Year of major improvement to the property | dbl    | <nobr>1989</nobr>   |
-| tax_levy  |This is the total taxes printed on the most recent tax notice.  It includes the City's general levy, levies for all taxing authorities, utilities, local improvements and miscellaneous charges| dbl    | <nobr>5361.97</nobr>   |
-| neighbourhood_code  |This is a 3-digit number assigned by BCA which identifies the neighbourhood for the folio| chr    | <nobr>018</nobr>   |
-| report_year  | The report year | dbl    | <nobr>2018</nobr>   |
-|geo_local_area | The local area where the feature is found, derived from the feature's coordinates or address in the source system. The City has 22 local areas (also known as local planning areas)| chr |  <nobr>West Point Grey</nobr> |
-|longitude|Longitude coordinate | dbl | -123.10050569761258 |
-|latitide|Latitide coordinate| dbl |49.2207524614659 | 
+| Variable                     | Meaning                                                                                                                                                                                         | Type | Sample                                         |
+| :--------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--- | :--------------------------------------------- |
+| pid                          | Property identifier                                                                                                                                                                             | chr  | <nobr>014-193-205</nobr>                       |
+| legal\_type                  | Values are ‘STRATA’, indicating property is part of a Strata Plan, ‘LAND’ indicating property has a non-strata plan number, or ‘OTHER’ for properties with no plan number                       | chr  | STRATA                                         |
+| folio                        | A 12-digit identifier for purposes of assessment                                                                                                                                                | dbl  | <nobr>151843410011</nobr>                      |
+| land\_coordinate             | First 8 digits of BC Assessment’s folio number                                                                                                                                                  | dbl  | <nobr>15184341</nobr>                          |
+| zone\_name                   | Name of zoning district                                                                                                                                                                         | chr  | <nobr>M-2</nobr>                               |
+| zone\_category               | Name of zoning category                                                                                                                                                                         | chr  | <nobr>Industrial</nobr>                        |
+| block                        | Component of legal description                                                                                                                                                                  | chr  | <nobr>155</nobr>                               |
+| plan                         | Component of legal description                                                                                                                                                                  | chr  | <nobr>VAS2438</nobr>                           |
+| district\_lot                | Component of legal description                                                                                                                                                                  | chr  | <nobr>319</nobr>                               |
+| lot                          | Component of legal description                                                                                                                                                                  | chr  | <nobr>11</nobr>                                |
+| from\_civic\_number          | This is the house number, it may be the first number in a range                                                                                                                                 | chr  | <nobr>3594</nobr>                              |
+| to\_civic\_number            | Blank unless it is the last house number in a range                                                                                                                                             | chr  | <nobr>9141</nobr>                              |
+| street\_name                 | The name of the street where the property is located                                                                                                                                            | chr  | <nobr>SHAUGHNESSY ST</nobr>                    |
+| property\_postal\_code       | A series of letters and/or digits that is attached to a property address                                                                                                                        | chr  | <nobr>V6P 6R9</nobr>                           |
+| narrative\_legal\_line3      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>SHARE IN COM PROP THEREIN</nobr>         |
+| narrative\_legal\_line2      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>319 NEW WESTMINSTER UNDIV 74/1341</nobr> |
+| narrative\_legal\_line1      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>DIV 376/127 LOT 220 PLAN LMS1863 </nobr> |
+| narrative\_legal\_line4      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>WESTMINSTER LAND DIST</nobr>             |
+| narrative\_legal\_line5      | Describes a property for registration purposes                                                                                                                                                  | chr  | <nobr>BLOCK 17, PLAN VAP5928 /nobr\>           |
+| current\_land\_value         | The market value of the fee simple interest in land and improvements                                                                                                                            | dbl  | <nobr>397000</nobr>                            |
+| current\_improvement\_value  | The market value of the fee simple interest in land and improvements                                                                                                                            | dbl  | <nobr>107000</nobr>                            |
+| tax\_assessment\_year        | Year in effect for Current\_Land\_Value, Current\_Improvement\_Value and Tax\_Levy                                                                                                              | dbl  | <nobr>2018</nobr>                              |
+| previous\_improvement\_value | Year in effect for Current\_Land\_Value, Current\_Improvement\_Value and Tax\_Levy                                                                                                              | dbl  | <nobr>112000</nobr>                            |
+| previous\_land\_value        | This value is for the previous assessment year                                                                                                                                                  | dbl  | <nobr>262000</nobr>                            |
+| year\_built                  | Year that the property was built                                                                                                                                                                | dbl  | <nobr>1989</nobr>                              |
+| big\_improvement\_year       | Year of major improvement to the property                                                                                                                                                       | dbl  | <nobr>1989</nobr>                              |
+| tax\_levy                    | This is the total taxes printed on the most recent tax notice. It includes the City’s general levy, levies for all taxing authorities, utilities, local improvements and miscellaneous charges. | dbl  | <nobr>5361.97</nobr>                           |
+| tax\_levy                    | This is the total taxes printed on the most recent tax notice. It includes the City’s general levy, levies for all taxing authorities, utilities, local improvements and miscellaneous charges. | dbl  | <nobr>5361.97</nobr>                           |
+| neighbourhood\_code          | This is a 3-digit number assigned by BCA which identifies the neighbourhood for the folio                                                                                                       | chr  | <nobr>018</nobr>                               |
+| report\_year                 | The report year                                                                                                                                                                                 | dbl  | <nobr>2018</nobr>                              |
 
 ## Example
 
@@ -96,7 +116,8 @@ library(taxyvr)
 
 tax_2018 %>% filter(legal_type == "LAND") %>% 
   arrange(desc(current_land_value))
-#> # A tibble: 90,044 x 29
+#> # A tibble: 90,052 x 32
+#> # Groups:   folio [90,044]
 #>    pid   legal_type   folio land_coordinate zone_name zone_category block plan 
 #>    <chr> <chr>        <dbl>           <dbl> <chr>     <chr>         <chr> <chr>
 #>  1 003-… LAND       7.50e11        75016492 CD-1 (1)  Comprehensiv… 892   VAP2…
@@ -109,7 +130,7 @@ tax_2018 %>% filter(legal_type == "LAND") %>%
 #>  8 009-… LAND       7.17e11        71715004 CD-1 (12… Comprehensiv… 1009  VAP1…
 #>  9 006-… LAND       6.11e11        61110709 RS-1      One Family D… <NA>  VAP2…
 #> 10 007-… LAND       7.39e11        73914897 CD-1 (65) Comprehensiv… 903   13962
-#> # … with 90,034 more rows, and 21 more variables: district_lot <chr>,
+#> # … with 90,042 more rows, and 24 more variables: district_lot <chr>,
 #> #   lot <chr>, from_civic_number <chr>, to_civic_number <dbl>,
 #> #   street_name <chr>, property_postal_code <chr>, narrative_legal_line3 <chr>,
 #> #   narrative_legal_line2 <chr>, narrative_legal_line1 <chr>,
@@ -117,7 +138,8 @@ tax_2018 %>% filter(legal_type == "LAND") %>%
 #> #   current_land_value <dbl>, current_improvement_value <dbl>,
 #> #   tax_assessment_year <dbl>, previous_improvement_value <dbl>,
 #> #   previous_land_value <dbl>, year_built <dbl>, big_improvement_year <dbl>,
-#> #   tax_levy <chr>, neighbourhood_code <chr>, report_year <dbl>
+#> #   tax_levy <chr>, neighbourhood_code <chr>, report_year <dbl>,
+#> #   geo_local_area <chr>, longitude <dbl>, latitude <dbl>
 ```
 
 or find out the summary statistics of the data:
@@ -125,15 +147,15 @@ or find out the summary statistics of the data:
 ``` r
 summary(tax_2018)
 #>      pid             legal_type            folio           land_coordinate   
-#>  Length:209649      Length:209649      Min.   :1.963e+10   Min.   : 1963206  
-#>  Class :character   Class :character   1st Qu.:2.107e+11   1st Qu.:21072395  
-#>  Mode  :character   Mode  :character   Median :6.122e+11   Median :61223404  
-#>                                        Mean   :4.980e+11   Mean   :49797179  
-#>                                        3rd Qu.:6.883e+11   3rd Qu.:68829732  
+#>  Length:209842      Length:209842      Min.   :1.963e+10   Min.   : 1963206  
+#>  Class :character   Class :character   1st Qu.:2.107e+11   1st Qu.:21071902  
+#>  Mode  :character   Mode  :character   Median :6.122e+11   Median :61215703  
+#>                                        Mean   :4.977e+11   Mean   :49765120  
+#>                                        3rd Qu.:6.883e+11   3rd Qu.:68828236  
 #>                                        Max.   :8.453e+11   Max.   :84531342  
 #>                                                                              
 #>   zone_name         zone_category         block               plan          
-#>  Length:209649      Length:209649      Length:209649      Length:209649     
+#>  Length:209842      Length:209842      Length:209842      Length:209842     
 #>  Class :character   Class :character   Class :character   Class :character  
 #>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #>                                                                             
@@ -141,15 +163,15 @@ summary(tax_2018)
 #>                                                                             
 #>                                                                             
 #>  district_lot           lot            from_civic_number  to_civic_number
-#>  Length:209649      Length:209649      Length:209649      Min.   :   1   
+#>  Length:209842      Length:209842      Length:209842      Min.   :   1   
 #>  Class :character   Class :character   Class :character   1st Qu.: 950   
-#>  Mode  :character   Mode  :character   Mode  :character   Median :1783   
-#>                                                           Mean   :2372   
-#>                                                           3rd Qu.:3318   
+#>  Mode  :character   Mode  :character   Mode  :character   Median :1781   
+#>                                                           Mean   :2371   
+#>                                                           3rd Qu.:3315   
 #>                                                           Max.   :9295   
-#>                                                           NA's   :611    
+#>                                                           NA's   :614    
 #>  street_name        property_postal_code narrative_legal_line3
-#>  Length:209649      Length:209649        Length:209649        
+#>  Length:209842      Length:209842        Length:209842        
 #>  Class :character   Class :character     Class :character     
 #>  Mode  :character   Mode  :character     Mode  :character     
 #>                                                               
@@ -157,7 +179,7 @@ summary(tax_2018)
 #>                                                               
 #>                                                               
 #>  narrative_legal_line2 narrative_legal_line1 narrative_legal_line4
-#>  Length:209649         Length:209649         Length:209649        
+#>  Length:209842         Length:209842         Length:209842        
 #>  Class :character      Class :character      Class :character     
 #>  Mode  :character      Mode  :character      Mode  :character     
 #>                                                                   
@@ -165,36 +187,36 @@ summary(tax_2018)
 #>                                                                   
 #>                                                                   
 #>  narrative_legal_line5 current_land_value  current_improvement_value
-#>  Length:209649         Min.   :0.000e+00   Min.   :        0        
-#>  Class :character      1st Qu.:4.630e+05   1st Qu.:    96200        
-#>  Mode  :character      Median :1.039e+06   Median :   184000        
-#>                        Mean   :1.833e+06   Mean   :   395127        
+#>  Length:209842         Min.   :0.000e+00   Min.   :        0        
+#>  Class :character      1st Qu.:4.630e+05   1st Qu.:    96100        
+#>  Mode  :character      Median :1.037e+06   Median :   184000        
+#>                        Mean   :1.832e+06   Mean   :   394869        
 #>                        3rd Qu.:1.686e+06   3rd Qu.:   296000        
 #>                        Max.   :3.517e+09   Max.   :611798000        
 #>                        NA's   :3287        NA's   :3287             
 #>  tax_assessment_year previous_improvement_value previous_land_value
 #>  Min.   :2018        Min.   :        0          Min.   :0.000e+00  
 #>  1st Qu.:2018        1st Qu.:    95200          1st Qu.:3.840e+05  
-#>  Median :2018        Median :   181000          Median :9.450e+05  
-#>  Mean   :2018        Mean   :   387512          Mean   :1.688e+06  
-#>  3rd Qu.:2018        3rd Qu.:   289000          3rd Qu.:1.680e+06  
+#>  Median :2018        Median :   181000          Median :9.440e+05  
+#>  Mean   :2018        Mean   :   387254          Mean   :1.687e+06  
+#>  3rd Qu.:2018        3rd Qu.:   288000          3rd Qu.:1.679e+06  
 #>  Max.   :2018        Max.   :626232000          Max.   :3.319e+09  
 #>  NA's   :3287        NA's   :7099               NA's   :7099       
 #>    year_built   big_improvement_year   tax_levy         neighbourhood_code
-#>  Min.   :1800   Min.   : 200         Length:209649      Length:209649     
+#>  Min.   :1800   Min.   : 200         Length:209842      Length:209842     
 #>  1st Qu.:1971   1st Qu.:1978         Class :character   Class :character  
 #>  Median :1993   Median :1994         Mode  :character   Mode  :character  
 #>  Mean   :1982   Mean   :1990                                              
 #>  3rd Qu.:2005   3rd Qu.:2005                                              
 #>  Max.   :2018   Max.   :2018                                              
-#>  NA's   :5203   NA's   :5197                                              
-#>   report_year  
-#>  Min.   :2018  
-#>  1st Qu.:2018  
-#>  Median :2018  
-#>  Mean   :2018  
-#>  3rd Qu.:2018  
-#>  Max.   :2018  
+#>  NA's   :5210   NA's   :5204                                              
+#>   report_year   geo_local_area       longitude         latitude    
+#>  Min.   :2018   Length:209842      Min.   :-123.2   Min.   :49.20  
+#>  1st Qu.:2018   Class :character   1st Qu.:-123.1   1st Qu.:49.24  
+#>  Median :2018   Mode  :character   Median :-123.1   Median :49.26  
+#>  Mean   :2018                      Mean   :-123.1   Mean   :49.26  
+#>  3rd Qu.:2018                      3rd Qu.:-123.1   3rd Qu.:49.28  
+#>  Max.   :2018                      Max.   :-123.0   Max.   :49.30  
 #> 
 ```
 

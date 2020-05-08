@@ -3,3 +3,8 @@
 ^README\.Rmd$
 ^doc$
 ^Meta$
+^\.github$
+^data-raw$
+^static$
+^LICENSE\.md$
+^open_government_licence.md$

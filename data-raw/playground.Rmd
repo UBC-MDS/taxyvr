@@ -138,11 +138,15 @@ browseVignettes("taxyvr")
 ```
 
 ```{R}
-addresses <-  get(load(file = "data/addresses.rda"))
+new_coords
 ```
 
 
 ```{r}
-second_ll %>% unique()
+second_ll %>% filter(is.na(longitude))
+```
+
+```{r}
+tax_2020
 ```
 
