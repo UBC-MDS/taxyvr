@@ -1,7 +1,6 @@
 library(dplyr)
 library(readr)
 library(ggmap)
-library(tidyverse)
 
 raw <-
   read_csv2(
@@ -9,70 +8,82 @@ raw <-
   )
 
 tax_2014 <- raw %>%
-  mutate(
-    FOLIO = as.numeric(FOLIO),
-    LAND_COORDINATE = as.numeric(LAND_COORDINATE),
-  ) %>%
+  mutate(FOLIO = as.numeric(FOLIO),
+         LAND_COORDINATE = as.numeric(LAND_COORDINATE),) %>%
   rename_all(tolower)
 
 # read in addresses
-addresses <-  get(load(file = "data-raw/addresses.rda"))
+addresses <- get(load(file = "data-raw/addresses.rda"))
 
-# convert PCOORD to correct type 
-coords <- addresses %>% mutate(PCOORD = as.numeric(PCOORD))
+# convert PCOORD to correct type
+coords <- addresses %>% 
+  mutate(PCOORD = as.numeric(PCOORD))
 
-# join with tax dataframe 
-combo <- tax_2014 %>% left_join(coords, by = c("land_coordinate" = "PCOORD") )
+# join with tax dataframe
+combo <- tax_2014 %>%
+  left_join(coords, by = c("land_coordinate" = "PCOORD"))
 
 #remove duplicates of folio that are created when joined with coord df
-ll_df <- combo %>% group_by(folio) %>% slice(1) 
+ll_df <- combo %>%
+  group_by(folio) %>%
+  slice(1) %>%
+  ungroup()
 
-
-# obtain the latitude and longitude of the column (tried replace and gsub without success)
-ll_df <- ll_df %>% separate(Geom, c("junk","needed"), sep = "\\[") 
-ll_df <- ll_df %>% separate(needed, c("needed2","morejunk"), sep = "\\]") 
-ll_df <- ll_df %>% separate(needed2, c("longitude","latitude"), sep = "\\,")
-ll_df  <- ll_df %>%  select(-junk, -morejunk, -STD_STREET) %>% mutate(longitude = as.numeric(longitude), latitude = as.numeric(latitude))
-
+# obtain the latitude and longitude of the column
+ll_df <- ll_df %>%
+  mutate(Geom = str_replace_all(Geom, ".*\\[| |\\].*", "")) %>%
+  separate(Geom, c("longitude", "latitude"), sep = ",") %>%
+  mutate(longitude = as.numeric(longitude)) %>%
+  mutate(latitude = as.numeric(latitude))
 
 # make a column for the full address to use geocoding on
-ll_df$full_address <- paste(ll_df$to_civic_number, 
-                            " ",
-                            ll_df$street_name,
-                            ", Vancouver, BC, ",
-                            ll_df$property_postal_code,
-                            sep="")
-
+ll_df$full_address <- paste(
+  ll_df$to_civic_number,
+  " ",
+  ll_df$street_name,
+  ", Vancouver, BC, ",
+  ll_df$property_postal_code,
+  sep = "")
 
 # find the values that are missing coordinates
-missing <-  ll_df %>% filter(is.na(latitude))
+missing <- ll_df %>%
+  filter(is.na(latitude))
 
-# make sure to register you API KEY first 
+# make sure to register you API KEY first
 # register_google(key = API_KEY)
 
-# Use google API to get missing coordinates
-new_coords <-  geocode(missing$full_address,output = "latlona", source = "google")
+# use google API to get missing coordinates
+new_coords <- geocode(missing$full_address,
+                      output = "latlona",
+                      source = "google")
 
- # since the function changes the address we add back the orginal full address for joining
+# since the function changes the address we add back the orginal full address for joining
 new_coords_xtra_a <- new_coords %>%
   cbind(full_address = missing$full_address)
 
-# join the 2 dataframes 
-second_ll <- ll_df %>% left_join(new_coords_xtra_a, by="full_address")
+# join the 2 dataframes
+second_ll <- ll_df %>%
+  left_join(new_coords_xtra_a, by = "full_address")
 
-# replace the na latitude and longitude values and remove unneeded columns 
-second_ll <- second_ll %>% 
-  mutate(latitude = ifelse(is.na(latitude), lat, latitude),
-         longitude = ifelse(is.na(longitude), lon, longitude)) %>% 
-  select(-lat, -lon, -address, -full_address, -CIVIC_NUMBER, -P_PARCEL_ID, -SITE_ID) %>%
-  rename(geo_local_area=`Geo Local Area`)
-
+# replace the na latitude and longitude values and remove unneeded columns
+second_ll <- second_ll %>%
+  mutate(
+    latitude = ifelse(is.na(latitude),
+                      lat,
+                      latitude),
+    longitude = ifelse(is.na(longitude),
+                       lon,
+                       longitude)) %>%
+  select(-lat,-lon,-full_address,
+         -CIVIC_NUMBER,-P_PARCEL_ID,
+         -SITE_ID,-address,-STD_STREET) %>%
+  rename(geo_local_area = `Geo Local Area`)
 
 second_ll %>% filter(is.na(longitude))
 
-# remove duplicates and rows should match # available on the website report 
+# remove duplicates and rows should match # available on the website report
 tax_2014 <- second_ll %>% unique()
 
 #write_csv(tax_2014, "data-raw/tax_2014.csv")
-save(tax_2014, file = "data/tax_2014.rda", compress='bzip2')
+save(tax_2014, file = "data/tax_2014.rda", compress = 'bzip2')
 saveRDS(tax_2014, "tests/testthat/tax_2014.rds")
