@@ -26,10 +26,10 @@ ll_df <- combo %>% group_by(folio) %>% slice(1)
 
 # obtain the latitude and longitude of the column
 ll_df <- ll_df %>%
-         mutate(Geom = str_replace_all(Geom, ".*\\[| |\\].*", "")) %>%
-         separate(Geom, c("longitude", "latitude"), sep = ",") %>%
-         mutate(longitude = as.numeric(longitude)) %>%
-         mutate(latitude = as.numeric(latitude))
+  mutate(Geom = str_replace_all(Geom, ".*\\[| |\\].*", "")) %>%
+  separate(Geom, c("longitude", "latitude"), sep = ",") %>%
+  mutate(longitude = as.numeric(longitude)) %>%
+  mutate(latitude = as.numeric(latitude))
 
 # make a column for the full address to use geocoding on
 ll_df$full_address <- paste(ll_df$to_civic_number, 

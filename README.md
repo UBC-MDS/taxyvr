@@ -5,7 +5,7 @@
 
 <!-- badges: start -->
 
-<img src="logo.svg" width="200" align="right" /> [![R build
+<img src="static/logo.svg" width="200" align="right" /> [![R build
 status](https://github.com/UBC-MDS/taxyvr/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/taxyvr/actions)
 <!-- badges: end -->
 

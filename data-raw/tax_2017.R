@@ -27,7 +27,6 @@ combo <- tax_2017 %>% left_join(coords, by = c("land_coordinate" = "PCOORD") )
 #remove duplicates of folio that are created when joined with coord df
 ll_df <- combo %>% group_by(folio) %>% slice(1) 
 
-
 # obtain the latitude and longitude of the column (tried replace and gsub without success)
 ll_df <- ll_df %>% separate(Geom, c("junk","needed"), sep = "\\[") 
 ll_df <- ll_df %>% separate(needed, c("needed2","morejunk"), sep = "\\]") 
