@@ -1,0 +1,24 @@
+{
+  "name": "taxyvr",
+  "version": "1.0.0",
+  "description": "(This is a semi-tidied data obtained from the City of Vancouver's Open Data Portal. It contains information on Vancouver property tax from the BC assessment.)",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "man": "man",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UBC-MDS/taxyvr.git"
+  },
+  "author": "Hayley Boyce, Jordan Bourak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UBC-MDS/taxyvr/issues"
+  },
+  "homepage": "https://github.com/UBC-MDS/taxyvr#readme"
+}
