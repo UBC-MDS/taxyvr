@@ -1,11 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src="static/logo.svg" width="200" align="right" />
+
 # taxyvr
 
 <!-- badges: start -->
 
-<img src="static/logo.svg" width="200" align="right" /> [![R build
+[![R build
 status](https://github.com/UBC-MDS/taxyvr/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/taxyvr/actions)
 <!-- badges: end -->
 
