@@ -131,3 +131,9 @@ Run this command to get info on how to cite this package.
 ```{r warning = FALSE}
 citation("taxyvr")
 ```
+
+On the topic of citations, we have one to cite:  
+
+This project was made using R package `ggmap`: 
+
+D. Kahle and H. Wickham. ggmap: Spatial Visualization with ggplot2. The R Journal, 5(1), 144-161. URL http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
