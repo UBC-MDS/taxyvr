@@ -49,14 +49,14 @@ This Package contains (currently) 7 main dataframes all with 29 columns
 :
 
   - `tax_2020`: This dataset is currently still being updated by the
-    city as it’s still the current year. It currently has 213761 rows
+    city as it’s still the current year. It currently has 213709 rows
     for properties in 2020
   - `tax_2019`: This contains data regarding the properties in vancouver
     for the year 2019. The values in this dataset are static and it has
-    213184 rows.
+    213182 rows.
   - `tax_2018`: This contains data regarding the properties in vancouver
     for the year 2018. The values in this dataset are also static and it
-    has 209842 rows.  
+    has 209649 rows.  
   - `tax_2017`: This contains data regarding the properties in vancouver
     for the year 2017. The values in this dataset are also static and it
     has 206480 rows.  
@@ -118,8 +118,7 @@ library(taxyvr)
 
 tax_2018 %>% filter(legal_type == "LAND") %>% 
   arrange(desc(current_land_value))
-#> # A tibble: 90,052 x 32
-#> # Groups:   folio [90,044]
+#> # A tibble: 90,044 x 32
 #>    pid   legal_type   folio land_coordinate zone_name zone_category block plan 
 #>    <chr> <chr>        <dbl>           <dbl> <chr>     <chr>         <chr> <chr>
 #>  1 003-… LAND       7.50e11        75016492 CD-1 (1)  Comprehensiv… 892   VAP2…
@@ -132,7 +131,7 @@ tax_2018 %>% filter(legal_type == "LAND") %>%
 #>  8 009-… LAND       7.17e11        71715004 CD-1 (12… Comprehensiv… 1009  VAP1…
 #>  9 006-… LAND       6.11e11        61110709 RS-1      One Family D… <NA>  VAP2…
 #> 10 007-… LAND       7.39e11        73914897 CD-1 (65) Comprehensiv… 903   13962
-#> # … with 90,042 more rows, and 24 more variables: district_lot <chr>,
+#> # … with 90,034 more rows, and 24 more variables: district_lot <chr>,
 #> #   lot <chr>, from_civic_number <chr>, to_civic_number <dbl>,
 #> #   street_name <chr>, property_postal_code <chr>, narrative_legal_line3 <chr>,
 #> #   narrative_legal_line2 <chr>, narrative_legal_line1 <chr>,
@@ -140,7 +139,7 @@ tax_2018 %>% filter(legal_type == "LAND") %>%
 #> #   current_land_value <dbl>, current_improvement_value <dbl>,
 #> #   tax_assessment_year <dbl>, previous_improvement_value <dbl>,
 #> #   previous_land_value <dbl>, year_built <dbl>, big_improvement_year <dbl>,
-#> #   tax_levy <chr>, neighbourhood_code <chr>, report_year <dbl>,
+#> #   tax_levy <dbl>, neighbourhood_code <chr>, report_year <dbl>,
 #> #   geo_local_area <chr>, longitude <dbl>, latitude <dbl>
 ```
 
@@ -149,15 +148,15 @@ or find out the summary statistics of the data:
 ``` r
 summary(tax_2018)
 #>      pid             legal_type            folio           land_coordinate   
-#>  Length:209842      Length:209842      Min.   :1.963e+10   Min.   : 1963206  
-#>  Class :character   Class :character   1st Qu.:2.107e+11   1st Qu.:21071902  
-#>  Mode  :character   Mode  :character   Median :6.122e+11   Median :61215703  
-#>                                        Mean   :4.977e+11   Mean   :49765120  
-#>                                        3rd Qu.:6.883e+11   3rd Qu.:68828236  
+#>  Length:209649      Length:209649      Min.   :1.963e+10   Min.   : 1963206  
+#>  Class :character   Class :character   1st Qu.:2.107e+11   1st Qu.:21072395  
+#>  Mode  :character   Mode  :character   Median :6.122e+11   Median :61223404  
+#>                                        Mean   :4.980e+11   Mean   :49797179  
+#>                                        3rd Qu.:6.883e+11   3rd Qu.:68829732  
 #>                                        Max.   :8.453e+11   Max.   :84531342  
 #>                                                                              
 #>   zone_name         zone_category         block               plan          
-#>  Length:209842      Length:209842      Length:209842      Length:209842     
+#>  Length:209649      Length:209649      Length:209649      Length:209649     
 #>  Class :character   Class :character   Class :character   Class :character  
 #>  Mode  :character   Mode  :character   Mode  :character   Mode  :character  
 #>                                                                             
@@ -165,15 +164,15 @@ summary(tax_2018)
 #>                                                                             
 #>                                                                             
 #>  district_lot           lot            from_civic_number  to_civic_number
-#>  Length:209842      Length:209842      Length:209842      Min.   :   1   
+#>  Length:209649      Length:209649      Length:209649      Min.   :   1   
 #>  Class :character   Class :character   Class :character   1st Qu.: 950   
-#>  Mode  :character   Mode  :character   Mode  :character   Median :1781   
-#>                                                           Mean   :2371   
-#>                                                           3rd Qu.:3315   
+#>  Mode  :character   Mode  :character   Mode  :character   Median :1783   
+#>                                                           Mean   :2372   
+#>                                                           3rd Qu.:3318   
 #>                                                           Max.   :9295   
-#>                                                           NA's   :614    
+#>                                                           NA's   :611    
 #>  street_name        property_postal_code narrative_legal_line3
-#>  Length:209842      Length:209842        Length:209842        
+#>  Length:209649      Length:209649        Length:209649        
 #>  Class :character   Class :character     Class :character     
 #>  Mode  :character   Mode  :character     Mode  :character     
 #>                                                               
@@ -181,7 +180,7 @@ summary(tax_2018)
 #>                                                               
 #>                                                               
 #>  narrative_legal_line2 narrative_legal_line1 narrative_legal_line4
-#>  Length:209842         Length:209842         Length:209842        
+#>  Length:209649         Length:209649         Length:209649        
 #>  Class :character      Class :character      Class :character     
 #>  Mode  :character      Mode  :character      Mode  :character     
 #>                                                                   
@@ -189,31 +188,31 @@ summary(tax_2018)
 #>                                                                   
 #>                                                                   
 #>  narrative_legal_line5 current_land_value  current_improvement_value
-#>  Length:209842         Min.   :0.000e+00   Min.   :        0        
-#>  Class :character      1st Qu.:4.630e+05   1st Qu.:    96100        
-#>  Mode  :character      Median :1.037e+06   Median :   184000        
-#>                        Mean   :1.832e+06   Mean   :   394869        
+#>  Length:209649         Min.   :0.000e+00   Min.   :        0        
+#>  Class :character      1st Qu.:4.630e+05   1st Qu.:    96200        
+#>  Mode  :character      Median :1.039e+06   Median :   184000        
+#>                        Mean   :1.833e+06   Mean   :   395127        
 #>                        3rd Qu.:1.686e+06   3rd Qu.:   296000        
 #>                        Max.   :3.517e+09   Max.   :611798000        
 #>                        NA's   :3287        NA's   :3287             
 #>  tax_assessment_year previous_improvement_value previous_land_value
 #>  Min.   :2018        Min.   :        0          Min.   :0.000e+00  
 #>  1st Qu.:2018        1st Qu.:    95200          1st Qu.:3.840e+05  
-#>  Median :2018        Median :   181000          Median :9.440e+05  
-#>  Mean   :2018        Mean   :   387254          Mean   :1.687e+06  
-#>  3rd Qu.:2018        3rd Qu.:   288000          3rd Qu.:1.679e+06  
+#>  Median :2018        Median :   181000          Median :9.450e+05  
+#>  Mean   :2018        Mean   :   387512          Mean   :1.688e+06  
+#>  3rd Qu.:2018        3rd Qu.:   289000          3rd Qu.:1.680e+06  
 #>  Max.   :2018        Max.   :626232000          Max.   :3.319e+09  
 #>  NA's   :3287        NA's   :7099               NA's   :7099       
-#>    year_built   big_improvement_year   tax_levy         neighbourhood_code
-#>  Min.   :1800   Min.   : 200         Length:209842      Length:209842     
-#>  1st Qu.:1971   1st Qu.:1978         Class :character   Class :character  
-#>  Median :1993   Median :1994         Mode  :character   Mode  :character  
-#>  Mean   :1982   Mean   :1990                                              
-#>  3rd Qu.:2005   3rd Qu.:2005                                              
-#>  Max.   :2018   Max.   :2018                                              
-#>  NA's   :5210   NA's   :5204                                              
+#>    year_built   big_improvement_year    tax_levy       neighbourhood_code
+#>  Min.   :1800   Min.   : 200         Min.   :      0   Length:209649     
+#>  1st Qu.:1971   1st Qu.:1978         1st Qu.:   1580   Class :character  
+#>  Median :1993   Median :1994         Median :   3678   Mode  :character  
+#>  Mean   :1982   Mean   :1990         Mean   :   8006                     
+#>  3rd Qu.:2005   3rd Qu.:2005         3rd Qu.:   6065                     
+#>  Max.   :2018   Max.   :2018         Max.   :9695819                     
+#>  NA's   :5203   NA's   :5197         NA's   :3123                        
 #>   report_year   geo_local_area       longitude         latitude    
-#>  Min.   :2018   Length:209842      Min.   :-123.2   Min.   :49.20  
+#>  Min.   :2018   Length:209649      Min.   :-123.2   Min.   :49.20  
 #>  1st Qu.:2018   Class :character   1st Qu.:-123.1   1st Qu.:49.24  
 #>  Median :2018   Mode  :character   Median :-123.1   Median :49.26  
 #>  Mean   :2018                      Mean   :-123.1   Mean   :49.26  
@@ -237,19 +236,26 @@ citation("taxyvr")
 #> 
 #> To cite package 'taxyvr' in publications use:
 #> 
-#>   Hayley Boyce (2020). taxyvr: Data from The city of Vancouver's Open
-#>   Data Portal on Vancouver property tax assessment.
-#>   https://github.com/UBC-MDS/taxyvr/,
-#>   https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/.
+#>   Hayley Boyce and Jordan Bourak (2020). taxyvr: Data from The city of
+#>   Vancouver's Open Data Portal on Vancouver property tax assessment. R
+#>   package version 0.0.0.1. https://github.com/UBC-MDS/taxyvr
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {taxyvr: Data from The city of Vancouver's Open Data Portal on Vancouver
 #> property tax assessment},
-#>     author = {Hayley Boyce},
+#>     author = {Hayley Boyce and Jordan Bourak},
 #>     year = {2020},
-#>     note = {https://github.com/UBC-MDS/taxyvr/,
-#> https://opendata.vancouver.ca/explore/dataset/property-tax-report/information/},
+#>     note = {R package version 0.0.0.1},
+#>     url = {https://github.com/UBC-MDS/taxyvr},
 #>   }
 ```
+
+On the topic of citations, we have one to cite:
+
+This project was made using R package `ggmap`:
+
+D. Kahle and H. Wickham. ggmap: Spatial Visualization with ggplot2. The
+R Journal, 5(1), 144-161. URL
+<http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf>
