@@ -50,7 +50,7 @@ This Package contains (currently) 7 main dataframes all with 29 columns
 
   - `tax_2020`: This dataset is currently still being updated by the
     city as it’s still the current year. It currently has 213709 rows
-    for properties in 2020
+    for properties in 2020.
   - `tax_2019`: This contains data regarding the properties in vancouver
     for the year 2019. The values in this dataset are static and it has
     213182 rows.
